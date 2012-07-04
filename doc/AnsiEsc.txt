@@ -1,8 +1,8 @@
-*AnsiEsc.txt*	Ansi Escape Sequence Visualization		Dec 13, 2010
+*AnsiEsc.txt*	Ansi Escape Sequence Visualization		Feb 22, 2011
 
 Author:  Charles E. Campbell, Jr.  <NdrOchip@ScampbellPfamily.AbizM>
 	  (remove NOSPAM from Campbell's email first)
-Copyright: (c) 2004-2010 by Charles E. Campbell, Jr.	*AnsiEsc-copyright*
+Copyright: (c) 2004-2011 by Charles E. Campbell, Jr.	*AnsiEsc-copyright*
            The VIM LICENSE applies to AnsiEsc.vim and AnsiEsc.txt
            (see |copyright|) except use "AnsiEsc" instead of "Vim".
 	   No warranty, express or implied.  Use At-Your-Own-Risk.
@@ -101,14 +101,19 @@ White   [37;40mW[m  [37;41mW[m  [37;42mW[m  [37;43mW[m  [37;44mW[m   
 
 ==============================================================================
 3. AnsiEsc History					*AnsiEsc-history* {{{1
+  v13	Apr 12, 2012	* (Peter Brant) a "conceal" was left on a syntax
+			  definition in a no-conceal-support if block.
+			  Fixed.
   v12	Jul 23, 2010	* changed conc to |'cole'| to correspond to vim 7.3's
 			  change
+			* for menus, &go =~# used to insure correct case
 	Aug 10, 2010	* (Rainer M Schmid) changed conceallevel setting to
 			  depend on whether the version is before vim 7.3;
 			  for 7.3, also sets concealcursor
 			* Restores conc/cole/cocu settings when AnsiEsc is
 			  toggled off.
 	Dec 13, 2010	* Included some additional sequences involving 0
+	Feb 22, 2011	* for menus, &go =~# used to insure correct case
   v11	Apr 20, 2010	* AnsiEsc now supports enabling/disabling via a menu
 			* <esc>[K and <esc>[00m now supported (as
 			  grep --color=always   issues them)
