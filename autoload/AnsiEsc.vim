@@ -1,8 +1,8 @@
 " AnsiEsc.vim: Uses syntax highlighting.  A vim 7.0 plugin!
 " Language:		Text with ansi escape sequences
 " Maintainer:	Charles E. Campbell <NdrOchipS@PcampbellAfamily.Mbiz>
-" Version:		13b	ASTRO-ONLY
-" Date:		Apr 12, 2012
+" Version:		13d	ASTRO-ONLY
+" Date:		Dec 06, 2012
 "
 " Usage: :AnsiEsc
 "
@@ -17,7 +17,7 @@
 if exists("g:loaded_AnsiEsc")
  finish
 endif
-let g:loaded_AnsiEsc = "v13b"
+let g:loaded_AnsiEsc = "v13d"
 if v:version < 700
  echohl WarningMsg
  echo "***warning*** this version of AnsiEsc needs vim 7.0"
@@ -186,6 +186,7 @@ fun! AnsiEsc#AnsiEsc(rebuild)
   syn region ansiRapidBlinkCyan	 start="\e\[;\=0\{0,2};\=\%(1;\)\=\%(6;36\|36;6\)m" end="\e\["me=e-2 contains=ansiConceal
   syn region ansiRapidBlinkWhite	 start="\e\[;\=0\{0,2};\=\%(1;\)\=\%(6;37\|37;6\)m" end="\e\["me=e-2 contains=ansiConceal
 
+  syn region ansiRV	 start="\e\[;\=0\{0,2};\=\%(1;\)\=7m" end="\e\["me=e-2 contains=ansiConceal
   syn region ansiRVBlack	 start="\e\[;\=0\{0,2};\=\%(1;\)\=\%(7;30\|30;7\)m" end="\e\["me=e-2 contains=ansiConceal
   syn region ansiRVRed		 start="\e\[;\=0\{0,2};\=\%(1;\)\=\%(7;31\|31;7\)m" end="\e\["me=e-2 contains=ansiConceal
   syn region ansiRVGreen	 start="\e\[;\=0\{0,2};\=\%(1;\)\=\%(7;32\|32;7\)m" end="\e\["me=e-2 contains=ansiConceal
@@ -392,6 +393,7 @@ fun! AnsiEsc#AnsiEsc(rebuild)
    hi ansiRapidBlinkCyan    ctermfg=cyan       guifg=cyan                                         cterm=standout     gui=undercurl
    hi ansiRapidBlinkWhite   ctermfg=white      guifg=white                                        cterm=standout     gui=undercurl
 
+   hi ansiRV                                                                                      cterm=reverse      gui=reverse
    hi ansiRVBlack           ctermfg=black      guifg=black                                        cterm=reverse      gui=reverse
    hi ansiRVRed             ctermfg=red        guifg=red                                          cterm=reverse      gui=reverse
    hi ansiRVGreen           ctermfg=green      guifg=green                                        cterm=reverse      gui=reverse
@@ -473,7 +475,7 @@ fun! AnsiEsc#AnsiEsc(rebuild)
    hi ansiCyanWhite         ctermfg=cyan       ctermbg=white      guifg=Cyan       guibg=White    cterm=none         gui=none
    hi ansiWhiteWhite        ctermfg=white      ctermbg=white      guifg=White      guibg=White    cterm=none         gui=none
 
-   if v:version >= 700 && exists("&t_Co") && &t_Co == 256 && exists("g:ansiesc_256color")
+   if v:version >= 700 && exists("+t_Co") && &t_Co == 256 && exists("g:ansiesc_256color")
     " ---------------------------
     " handle 256-color terminals: {{{3
     " ---------------------------
@@ -570,6 +572,7 @@ fun! AnsiEsc#AnsiEsc(rebuild)
    hi ansiRapidBlinkCyan    ctermfg=cyan       guifg=cyan                                         cterm=standout     gui=undercurl
    hi ansiRapidBlinkWhite   ctermfg=white      guifg=white                                        cterm=standout     gui=undercurl
 
+   hi ansiRV                                                                                      cterm=reverse      gui=reverse
    hi ansiRVBlack           ctermfg=black      guifg=black                                        cterm=reverse      gui=reverse
    hi ansiRVRed             ctermfg=red        guifg=red                                          cterm=reverse      gui=reverse
    hi ansiRVGreen           ctermfg=green      guifg=green                                        cterm=reverse      gui=reverse
